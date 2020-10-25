@@ -82,7 +82,8 @@ gReflections = {
     "you'll": "I will",
     "your": "my",
     "yours": "mine",
-    "you": "me",
+    # "you": "me",
+    "you": "I",
     "me": "you",
     # Additions for third person:
     "we": "you",
@@ -312,6 +313,9 @@ gPats = [
       "I don't know -- why can't you %1?",
       "Have you really tried?"]],
 
+    [r'Why do you ([^\?]*)\??',
+     ["What tells you I do?"]],
+
     [r'We can\'?t (.*)',
      ["How do you know you can't %1?",
       "Perhaps you could %1 if you tried.",
@@ -390,7 +394,7 @@ gPats = [
     [r'(.*)',
      ["Please tell me more.",
       "Let's change focus a bit... Tell me about your AI: Futures Studies and Philosophy of technology class.",
-"Let's change focus a bit... Tell me about your feelings with regard to AI.",
+      "Let's change focus a bit... Tell me about your feelings with regard to AI.",
       "Can you elaborate on that?",
       "Why do you say that %1?",
       "I see.",
@@ -424,6 +428,8 @@ def command_interface():
             s = s[:-1]
         response = therapist.respond(s)
         print(response)
+        # remove last audio file
+        os.remove("C://Users/phile/PycharmProjects/eliza.py/text_to_speech/response.mp3")
         # make request to google to get synthesis
         tts = gtts.gTTS(response, lang="en-au")
         # save the audio file

@@ -13,6 +13,10 @@
 import string
 import re
 import random
+import gtts
+from playsound import playsound
+import os
+from time import sleep
 
 class Eliza:
     def __init__(self):
@@ -418,7 +422,16 @@ def command_interface():
         print(s)
         while s[-1] in '!.':
             s = s[:-1]
-        print(therapist.respond(s))
+        response = therapist.respond(s)
+        print(response)
+        # make request to google to get synthesis
+        tts = gtts.gTTS(response, lang="en-au")
+        # save the audio file
+        tts.save(os.path.join("C:/Users/phile/PycharmProjects/eliza.py/text_to_speech/", "response.mp3"))
+        # # wait one second for the file to save
+        # sleep(1)
+        # play the audio file
+        playsound("C:/Users/phile/PycharmProjects/eliza.py/text_to_speech/response.mp3")
 
 
 if __name__ == "__main__":

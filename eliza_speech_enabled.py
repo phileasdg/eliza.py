@@ -101,7 +101,6 @@ gReflections = {
 #  two-element list; the first is a regexp, and the second is a
 #  list of possible responses, with group-macros labelled as
 #  %1, %2, etc.
-# ----------------------------------------------------------------------
 gPats = [
     [r'I need (.*)',
      ["Why do you need %1?",
@@ -393,8 +392,7 @@ gPats = [
 
     [r'(.*)',
      ["Please tell me more.",
-      "Let's change focus a bit... Tell me about your AI: Futures Studies and Philosophy of technology class.",
-      "Let's change focus a bit... Tell me about your feelings with regard to AI.",
+      "Let's change focus a bit... Tell me about your feelings with regards to AI.",
       "Can you elaborate on that?",
       "Why do you say that %1?",
       "I see.",
@@ -404,6 +402,7 @@ gPats = [
       "How does that make you feel?",
       "How do you feel when you say that?"]]
 ]
+# ----------------------------------------------------------------------
 
 
 # ----------------------------------------------------------------------

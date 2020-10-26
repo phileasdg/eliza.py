@@ -80,10 +80,11 @@ gReflections = {
     # "are": "am",
     "you've": "I have",
     "you'll": "I will",
+    "you're": "I am",
+    "you are": "I am",
     "your": "my",
     "yours": "mine",
-    # "you": "me",
-    "you": "I",
+    "you": "me",
     "me": "you",
     # Additions for third person:
     "we": "you",
@@ -92,8 +93,6 @@ gReflections = {
     "us": "you",
     "our": "your",
     "ours": "yours",
-    # Other Additions:
-    "you are": "I am",
 }
 
 # ----------------------------------------------------------------------
@@ -379,16 +378,17 @@ gPats = [
 
     [r'(.*) AI(.*)',
      ["Are you talking about me?",
-      "Would you say that I am intelligent?"
+      "Would you say that I am intelligent?",
       "Does it seem strange to talk to a computer?",
+      "Would you say that I am intelligent? Does it seem strange to talk to a computer?",
       "How does AI make you feel?",
       "Do you feel comfortable speaking to me about this?"]],
 
-    # [r'(.*) AI safety(.*)',
-    #  ["Are you really talking about me?",
-    #   "Does it seem strange to talk to a computer?",
-    #   "How do computers make you feel?",
-    #   "Do you feel threatened by computers?"]],
+    [r'(.*) AI safety(.*)',
+     ["Are you saying I am not safe to be around?",
+      "Do you not feel safe around me?",
+      "AI safety is complex issue. I might be biased if we discuss it.",
+      "Have you read much about this subject?"]],
 
     [r'(.*)',
      ["Please tell me more.",

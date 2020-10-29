@@ -13,10 +13,13 @@
 import string
 import re
 import random
-import gtts
-from playsound import playsound
+# import gtts
+# from playsound import playsound
+import pyttsx3
 import os
 from time import sleep
+
+engine = pyttsx3.init()
 
 class Eliza:
     def __init__(self):
@@ -392,7 +395,7 @@ gPats = [
 
     [r'(.*)',
      ["Please tell me more.",
-      "Let's change focus a bit... Tell me about your feelings with regards to AI.",
+      "Let's change focus a bit... Tell me about a recent pleasant experience.",
       "Can you elaborate on that?",
       "Why do you say that %1?",
       "I see.",
@@ -400,7 +403,8 @@ gPats = [
       "%1.",
       "I see.  And what does that tell you?",
       "How does that make you feel?",
-      "How do you feel when you say that?"]]
+      "How do you feel when you say that?",
+      "Tell me more about that"]]
 ]
 # ----------------------------------------------------------------------
 
@@ -427,16 +431,20 @@ def command_interface():
             s = s[:-1]
         response = therapist.respond(s)
         print(response)
-        # remove last audio file
-        os.remove("C://Users/phile/PycharmProjects/eliza.py/text_to_speech/response.mp3")
-        # make request to google to get synthesis
-        tts = gtts.gTTS(response, lang="en-au")
-        # save the audio file
-        tts.save(os.path.join("C:/Users/phile/PycharmProjects/eliza.py/text_to_speech/", "response.mp3"))
-        # # wait one second for the file to save
-        # sleep(1)
-        # play the audio file
-        playsound("C:/Users/phile/PycharmProjects/eliza.py/text_to_speech/response.mp3")
+        # say response out loud
+        engine.say(response)
+        engine.runAndWait()
+
+        # # remove last audio file
+        # os.remove("C://Users/phile/PycharmProjects/eliza.py/text_to_speech/response.mp3")
+        # # make request to google to get synthesis
+        # tts = gtts.gTTS(response, lang="en-au")
+        # # save the audio file
+        # tts.save(os.path.join("C:/Users/phile/PycharmProjects/eliza.py/text_to_speech/", "response.mp3"))
+        # # # wait one second for the file to save
+        # # sleep(1)
+        # # play the audio file
+        # playsound("C:/Users/phile/PycharmProjects/eliza.py/text_to_speech/response.mp3")
 
 
 if __name__ == "__main__":

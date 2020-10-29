@@ -260,6 +260,9 @@ gPats = [
       "Why do you say that about me?",
       "Why do you care whether I %1?"]],
 
+    [r'Why do you ([^\?]*)\??',
+     ["What tells you I do?"]],
+
     [r'Why (.*)',
      ["Why don't you tell me the reason why %1?",
       "Why do you think %1?"]],
@@ -313,9 +316,6 @@ gPats = [
       "If you could %1, what would you do?",
       "I don't know -- why can't you %1?",
       "Have you really tried?"]],
-
-    [r'Why do you ([^\?]*)\??',
-     ["What tells you I do?"]],
 
     [r'We can\'?t (.*)',
      ["How do you know you can't %1?",
